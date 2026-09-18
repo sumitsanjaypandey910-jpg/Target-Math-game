@@ -1,0 +1,6 @@
+{
+  "name": "Sea Bubble Sum",
+  "description": "An underwater math puzzle game where players pop floating bubbles that add up to the target number.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

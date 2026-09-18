@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@keyframes rise {
+  0% {
+    transform: translateY(100%) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-800px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes swaySlow {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(4.5deg);
+  }
+}
+
+@keyframes swayMed {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+}
+
+.animate-rise {
+  animation: rise linear infinite;
+}
+
+.animate-sway-slow {
+  animation: swaySlow 5s ease-in-out infinite;
+}
+
+.animate-sway-med {
+  animation: swayMed 4s ease-in-out infinite;
+}
+
+/* Ensure no text selection or pinch zooming in game */
+body {
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
