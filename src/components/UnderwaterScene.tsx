@@ -9,18 +9,18 @@ export const UnderwaterScene: React.FC<UnderwaterSceneProps> = ({ children }) =>
   return (
     <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
       {/* Outer ambient underwater background with light rays and 3D ocean depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0e5c9f] via-[#094178] to-[#041f40]">
-        {/* Soft sun rays streaming from top */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#cbf3fd] via-[#8fe0fa] to-[#54c4eb]">
+        {/* Soft bright sun rays streaming from top */}
         <div 
-          className="absolute inset-0 opacity-20 pointer-events-none mix-blend-screen"
+          className="absolute inset-0 opacity-40 pointer-events-none mix-blend-screen"
           style={{
-            backgroundImage: `radial-gradient(ellipse at 50% 0%, rgba(165, 243, 252, 0.4) 0%, transparent 60%),
-                              repeating-linear-gradient(75deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 35px, transparent 35px, transparent 90px)`
+            backgroundImage: `radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.85) 0%, rgba(224, 247, 250, 0.5) 45%, transparent 75%),
+                              repeating-linear-gradient(75deg, rgba(255,255,255,0.22) 0px, rgba(255,255,255,0.22) 32px, transparent 32px, transparent 85px)`
           }}
         />
 
         {/* 3D Depth Layer for Outer Deep Ocean with drifting seaweed, rising 3D bubbles, and subtle marine particles */}
-        <UnderwaterBackground3D density="normal" interactive={true} className="opacity-90" />
+        <UnderwaterBackground3D density="normal" interactive={true} className="opacity-80" />
       </div>
 
       {/* Main Game Container - Fixed aspect ratio matching portrait mobile game */}
@@ -70,10 +70,18 @@ export const UnderwaterScene: React.FC<UnderwaterSceneProps> = ({ children }) =>
             </div>
           </div>
 
-          {/* Inner Playfield Window (Deep ocean view with sunken ship and seabed) */}
-          <div className="relative w-full h-full rounded-[16px] overflow-hidden bg-gradient-to-b from-[#0b64a8] via-[#084883] to-[#042852] shadow-[inset_0_6px_16px_rgba(0,0,0,0.8),inset_0_0_4px_rgba(0,0,0,0.9)]">
+          {/* Inner Playfield Window (Light sunlit tropical lagoon view with sunken ship and golden seabed) */}
+          <div className="relative w-full h-full rounded-[16px] overflow-hidden bg-gradient-to-b from-[#8fe4fd] via-[#56caee] to-[#25a7d3] shadow-[inset_0_3px_12px_rgba(2,132,199,0.35),inset_0_0_2px_rgba(3,105,161,0.25)]">
+            {/* Top sunlight water surface caustics glow */}
+            <div
+              className="absolute inset-0 pointer-events-none opacity-35 mix-blend-overlay z-0"
+              style={{
+                backgroundImage: 'radial-gradient(ellipse at 50% 5%, rgba(255, 255, 255, 0.95) 0%, transparent 65%)'
+              }}
+            />
+
             {/* 3D Depth Layer inside playfield: procedural 3D drifting seaweed, buoyant bubbles & marine particles */}
-            <UnderwaterBackground3D density="subtle" interactive={true} className="opacity-65 z-0" />
+            <UnderwaterBackground3D density="subtle" interactive={true} className="opacity-70 z-0" />
             
             {/* SVG Illustration Layer: Shipwreck, Chest, Rocks, Seaweed */}
             <svg
@@ -85,23 +93,24 @@ export const UnderwaterScene: React.FC<UnderwaterSceneProps> = ({ children }) =>
               <defs>
                 {/* Sunken Ship Wood Gradients */}
                 <linearGradient id="shipWood" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="#c59146" />
-                  <stop offset="50%" stopColor="#966122" />
-                  <stop offset="100%" stopColor="#5f370f" />
+                  <stop offset="0%" stopColor="#d97706" />
+                  <stop offset="50%" stopColor="#b45309" />
+                  <stop offset="100%" stopColor="#78350f" />
                 </linearGradient>
                 <linearGradient id="shipDeck" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#8d5619" />
-                  <stop offset="100%" stopColor="#442507" />
+                  <stop offset="0%" stopColor="#a16207" />
+                  <stop offset="100%" stopColor="#582604" />
                 </linearGradient>
                 <linearGradient id="ghostSail" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="rgba(180, 230, 220, 0.45)" />
-                  <stop offset="60%" stopColor="rgba(120, 195, 190, 0.28)" />
-                  <stop offset="100%" stopColor="rgba(70, 150, 150, 0.15)" />
+                  <stop offset="0%" stopColor="rgba(240, 253, 250, 0.65)" />
+                  <stop offset="60%" stopColor="rgba(204, 251, 241, 0.42)" />
+                  <stop offset="100%" stopColor="rgba(153, 246, 228, 0.22)" />
                 </linearGradient>
                 <linearGradient id="sandGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#d4af62" />
-                  <stop offset="40%" stopColor="#ba9343" />
-                  <stop offset="100%" stopColor="#825e21" />
+                  <stop offset="0%" stopColor="#fef08a" />
+                  <stop offset="35%" stopColor="#fde047" />
+                  <stop offset="70%" stopColor="#eab308" />
+                  <stop offset="100%" stopColor="#b45309" />
                 </linearGradient>
                 <linearGradient id="seaweedDark" x1="0" y1="0" x2="1" y2="0">
                   <stop offset="0%" stopColor="#1e8a4a" />
@@ -129,16 +138,16 @@ export const UnderwaterScene: React.FC<UnderwaterSceneProps> = ({ children }) =>
                 </filter>
               </defs>
 
-              {/* Distant background underwater hills / blue silhouettes */}
+              {/* Distant background underwater hills / turquoise silhouettes */}
               <path
                 d="M-20 480 Q60 360 160 410 T380 370 T420 450 L420 650 L-20 650 Z"
-                fill="#073b6b"
-                opacity="0.6"
+                fill="#1ba4cc"
+                opacity="0.45"
               />
               <path
                 d="M-20 520 Q120 440 240 480 T420 460 L420 650 L-20 650 Z"
-                fill="#0a467e"
-                opacity="0.75"
+                fill="#1490b6"
+                opacity="0.55"
               />
 
               {/* SUNKEN PIRATE SHIP (Centered in mid-background like the screenshot) */}
@@ -238,8 +247,8 @@ export const UnderwaterScene: React.FC<UnderwaterSceneProps> = ({ children }) =>
               />
               <path
                 d="M -10 590 Q 110 565 240 595 Q 340 615 410 580 L 410 660 L -10 660 Z"
-                fill="#b8913e"
-                opacity="0.9"
+                fill="#d97706"
+                opacity="0.75"
               />
 
               {/* ROCKS FORMATION (Bottom Right, exactly like screenshot) */}
@@ -392,13 +401,13 @@ export const UnderwaterScene: React.FC<UnderwaterSceneProps> = ({ children }) =>
           </div>
         </div>
 
-        {/* Bottom Seabed Sandy Shelf Detail (matching bottom of screenshot with gold coins and pirate sword) */}
-        <div className="w-full mt-1.5 px-3 py-1 flex items-center justify-between pointer-events-none text-amber-200/60 text-xs">
+        {/* Bottom Seabed Sandy Shelf Detail */}
+        <div className="w-full mt-1.5 px-3 py-1 flex items-center justify-between pointer-events-none text-sky-950 font-bold text-xs drop-shadow-sm">
           <div className="flex items-center gap-2">
-            <span className="text-amber-400 font-bold drop-shadow">🪙</span>
-            <span className="text-sky-200/80 font-medium">Undersea Adventure</span>
+            <span className="text-amber-500 font-black drop-shadow">🪙</span>
+            <span className="text-sky-900 font-extrabold tracking-wide">Undersea Adventure</span>
           </div>
-          <div className="text-sky-300/70 text-[11px]">
+          <div className="text-sky-800 font-bold text-[11px]">
             Target Match Game
           </div>
         </div>

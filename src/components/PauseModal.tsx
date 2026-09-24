@@ -63,7 +63,7 @@ export const PauseModal: React.FC<PauseModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-sky-950/85 backdrop-blur-sm overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-sky-950/60 backdrop-blur-sm overflow-y-auto">
       <motion.div
         initial={{ scale: 0.88, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}

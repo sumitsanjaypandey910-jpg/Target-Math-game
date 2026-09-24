@@ -20,7 +20,7 @@ export const UnderwaterBackground3D: React.FC<UnderwaterBackground3DProps> = ({
 
     // Scene, Camera, Renderer
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x042244, 0.032);
+    scene.fog = new THREE.FogExp2(0x8ae4fc, 0.015);
 
     const camera = new THREE.PerspectiveCamera(
       45,
@@ -42,14 +42,14 @@ export const UnderwaterBackground3D: React.FC<UnderwaterBackground3DProps> = ({
     container.appendChild(renderer.domElement);
 
     // Ambient & Directional Sunbeam Lighting
-    const ambientLight = new THREE.AmbientLight(0x0e5a96, 1.4);
+    const ambientLight = new THREE.AmbientLight(0xe0f7fe, 2.2);
     scene.add(ambientLight);
 
-    const sunLight = new THREE.DirectionalLight(0x7dd3fc, 2.2);
+    const sunLight = new THREE.DirectionalLight(0xffffff, 2.6);
     sunLight.position.set(-5, 15, 8);
     scene.add(sunLight);
 
-    const bottomGlow = new THREE.PointLight(0x06b6d4, 1.2, 20);
+    const bottomGlow = new THREE.PointLight(0x7dd3fc, 1.4, 25);
     bottomGlow.position.set(0, -8, 2);
     scene.add(bottomGlow);
 
@@ -274,9 +274,9 @@ export const UnderwaterBackground3D: React.FC<UnderwaterBackground3DProps> = ({
     scene.add(fishGroup);
 
     const fishMat = new THREE.MeshBasicMaterial({
-      color: 0x052e4d,
+      color: 0x0369a1,
       transparent: true,
-      opacity: 0.32,
+      opacity: 0.35,
     });
 
     for (let f = 0; f < 3; f++) {

@@ -163,10 +163,10 @@ export const GameHeader: React.FC<GameHeaderProps> = ({
       {/* Main Prompt Banner (matching screenshot text: "Choose two numbers which make 10 in total") */}
       <div className="w-full text-center mt-0.5 mb-1 px-2">
         <h1
-          className="text-lg sm:text-xl md:text-2xl text-[#d4f1ff] font-extrabold tracking-wide leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] flex items-center justify-center gap-1.5 flex-wrap"
+          className="text-lg sm:text-xl md:text-2xl text-white font-extrabold tracking-wide leading-tight flex items-center justify-center gap-1.5 flex-wrap"
           style={{
             fontFamily: "'Lilita One', 'Fredoka', cursive, sans-serif",
-            textShadow: '0 2px 4px rgba(0, 30, 70, 0.9), 0 0 10px rgba(56, 189, 248, 0.4)',
+            textShadow: '0 2px 4px rgba(2, 44, 75, 0.95), 0 0 10px rgba(7, 89, 133, 0.75)',
           }}
         >
           <span>Choose two numbers which make</span>
@@ -178,17 +178,17 @@ export const GameHeader: React.FC<GameHeaderProps> = ({
             onClick={onShuffleTarget}
             type="button"
             title="Target number automatically changes! Click to change immediately"
-            className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-xl bg-gradient-to-r from-amber-400/40 via-yellow-400/40 to-amber-300/40 hover:from-amber-400/60 hover:to-yellow-300/60 border-2 border-amber-300 text-yellow-300 hover:text-white font-black shadow-[0_0_20px_rgba(253,224,71,0.6)] cursor-pointer transition-all active:scale-95 group"
+            className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-xl bg-gradient-to-r from-amber-300 via-yellow-300 to-amber-200 hover:from-yellow-200 hover:to-amber-100 border-2 border-amber-500 text-amber-950 font-black shadow-[0_2px_8px_rgba(180,83,9,0.35)] cursor-pointer transition-all active:scale-95 group"
           >
             <span>{settings.targetSum}</span>
             {onShuffleTarget && (
-              <Shuffle size={13} className="opacity-70 group-hover:opacity-100 transition text-amber-200 ml-0.5" />
+              <Shuffle size={13} className="text-amber-800 ml-0.5" />
             )}
           </motion.button>
           <span>in total</span>
           {settings.dynamicTarget && (
-            <span className="text-[10px] uppercase font-black tracking-wider px-2 py-0.5 rounded-full bg-amber-400/25 text-amber-200 border border-amber-300/40 shadow-sm ml-1 flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping inline-block" />
+            <span className="text-[10px] uppercase font-black tracking-wider px-2 py-0.5 rounded-full bg-amber-400 text-amber-950 border border-amber-500 shadow-sm ml-1 flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-700 animate-ping inline-block" />
               Auto-Target
             </span>
           )}
@@ -197,17 +197,19 @@ export const GameHeader: React.FC<GameHeaderProps> = ({
         {/* Status guidance strip */}
         <div className="h-5 flex items-center justify-center mt-0.5">
           {selectedBubbleValue !== null ? (
-            <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-amber-400/20 border border-amber-300/40 text-amber-200 text-xs font-semibold animate-pulse shadow-sm">
-              <span>Selected: <strong className="text-amber-300 text-sm">{selectedBubbleValue}</strong></span>
-              <span>•</span>
-              <span>Needs: <strong className="text-yellow-200 text-sm">{settings.targetSum - selectedBubbleValue}</strong></span>
+            <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-sky-950/80 border border-amber-400/60 text-white text-xs font-semibold animate-pulse shadow-sm">
+              <span>Selected: <strong className="text-amber-300 text-sm font-black">{selectedBubbleValue}</strong></span>
+              <span className="text-sky-300">•</span>
+              <span>Needs: <strong className="text-yellow-200 text-sm font-black">{settings.targetSum - selectedBubbleValue}</strong></span>
             </div>
           ) : stats.currentStreak > 1 ? (
-            <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-sky-200 text-xs font-bold">
+            <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-sky-950/80 border border-amber-400/50 text-amber-300 text-xs font-black shadow-sm">
               <span>🔥 Streak x{stats.currentStreak}!</span>
             </div>
           ) : (
-            <span className="text-[11px] text-sky-200/60">Tap two bubbles that make {settings.targetSum}</span>
+            <span className="text-[11px] font-bold text-sky-950 bg-white/70 px-2.5 py-0.5 rounded-full shadow-sm">
+              Tap two bubbles that make {settings.targetSum}
+            </span>
           )}
         </div>
       </div>

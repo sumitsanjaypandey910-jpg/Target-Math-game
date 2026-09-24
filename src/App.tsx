@@ -486,7 +486,7 @@ export default function App() {
   };
 
   return (
-    <div className="w-screen h-screen overflow-hidden flex flex-col items-center justify-center bg-[#031429]">
+    <div className="w-screen h-screen overflow-hidden flex flex-col items-center justify-center bg-gradient-to-b from-[#e0f7fa] via-[#e1f5fe] to-[#b3e5fc]">
       <UnderwaterScene>
         {/* Game Top Header (Score, Timer, Prompt Banner, Controls) */}
         <GameHeader
